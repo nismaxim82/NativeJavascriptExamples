@@ -1,0 +1,45 @@
+{
+    "_id": "5d777ecb5123cdc246452c84",
+    "index": 0,
+    "guid": "caba2151-b32a-4de4-80f6-9e67bbf90686",
+    "isActive": false,
+    "balance": "$3,515.24",
+    "picture": "http://placehold.it/32x32",
+    "age": 38,
+    "eyeColor": "brown",
+    "name": "Peters Sweet",
+    "gender": "male",
+    "company": "GLUKGLUK",
+    "email": "peterssweet@glukgluk.com",
+    "phone": "+1 (962) 552-2592",
+    "address": "881 Charles Place, Campo, New York, 1385",
+    "about": "Velit anim aute dolore voluptate aliquip voluptate adipisicing occaecat Lorem occaecat ipsum aute ipsum ad. Adipisicing nisi eu consectetur et excepteur consectetur. Magna cupidatat deserunt laborum tempor ex enim magna irure laborum do veniam. Anim cillum proident qui ut adipisicing ipsum laboris qui. Reprehenderit aute nisi aliquip culpa nulla veniam ut aliqua ea sit dolore ut.\r\n",
+    "registered": "2015-07-15T08:39:56 -03:00",
+    "latitude": -32.124906,
+    "longitude": 17.352073,
+    "tags": [
+        "cillum",
+        "do",
+        "ad",
+        "excepteur",
+        "irure",
+        "do",
+        "irure"
+    ],
+    "friends": [
+        {
+            "id": 0,
+            "name": "Sanford Nicholson"
+        },
+        {
+            "id": 1,
+            "name": "Deana Carver"
+        },
+        {
+            "id": 2,
+            "name": "Magdalena Hubbard"
+        }
+    ],
+    "greeting": "Hello, Peters Sweet! You have 1 unread messages.",
+    "favoriteFruit": "banana"
+}

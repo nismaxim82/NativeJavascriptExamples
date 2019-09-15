@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="../css/prism.css">
     <style type="text/css">
         html,
         body {
@@ -13,14 +14,21 @@
             margin: 0;
             padding: 0 20px;
         }
+
+        pre>code {
+            display: block;
+            padding: 1rem;
+            word-wrap: normal;
+        }
     </style>
 </head>
 
 <body>
     <div class="root">
         <h1>Yields example</h1>
-        <pre class="code"></pre>
+        <pre class="language-javascript"><code class="code language-javascript" contenteditable spellcheck="false"></code></pre>
     </div>
+    <script type="text/javascript" src="../javascripts/prism.js"></script>
     <script type="text/javascript" src="../javascripts/yields.js"></script>
     <script type="text/javascript">
         (function () {
@@ -32,7 +40,7 @@
             var response = yield fetch(url);
             var responseBody = yield response.text();
             var code = document.querySelector('.code');
-            code.innerHTML = responseBody;
+            code.innerHTML = Prism.highlight(responseBody, Prism.languages.javascript, 'javascript');
         }
     </script>
 </body>

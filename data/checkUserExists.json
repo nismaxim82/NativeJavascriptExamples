@@ -1,0 +1,14 @@
+[
+    {
+        "Login": "SecuredAdminLogin",
+        "Password": "999"
+    },
+    {
+        "Login": "MyTestLogin",
+        "Password": "123"
+    },
+    {
+        "Login": "VasyaPupkin",
+        "Password": "333"
+    }
+]

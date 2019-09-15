@@ -22,8 +22,8 @@ function* getTestJson() {
 };
 
 function* registerUser({ login, password }) {
-    console.log(login, password);
-    // for our test example it will return all our users, in the real api it will be server side check user exist in the database or other data source
+    // for our test example it will return all our users, 
+    // in the real api it will be server side check user exist in the database or other data source
     var url = 'https://nismaxim82.github.io/NativeJavascriptExamples/data/checkUserExists.json';
     var response = yield fetch(url);
     var users = yield response.json();
@@ -33,7 +33,7 @@ function* registerUser({ login, password }) {
     })) {
         console.error('User \'' + login + '\' already exists. Please change your login.');
         login += '2';
-        execute(registerUser(), login, password);
+        execute(registerUser({login, password}));
     } else {
         // call register api, we call json result with static data for our test
         url = 'https://nismaxim82.github.io/NativeJavascriptExamples/data/registerUser.json';
@@ -42,7 +42,7 @@ function* registerUser({ login, password }) {
         if (!registerResult.Success) {
             console.error(registerResult.ErrorMessage);
         } else {
-            console.log('User successfully registered');
+            console.log('User \'' + login + '\' successfully registered');
         }
     }
 }
@@ -50,7 +50,7 @@ function* registerUser({ login, password }) {
 execute(getTestJson(), null, function (data) {
     console.log(data);
 });
-console.log('Asynchronious console log before receive request result');
+console.log('Asynchronious console log before receive response from the \'getTestJson\' function');
 
 // example of call linked apis
 execute(registerUser({ login: 'MyTestLogin', password: '123' }));

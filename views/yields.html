@@ -6,6 +6,8 @@
     <style type="text/css">
         html,
         body {
+            font: Arial, sans-serif;
+            font-size: 14px;
             margin: 0;
             padding: 0;
         }
@@ -20,13 +22,51 @@
             padding: 1rem;
             word-wrap: normal;
         }
+
+        .text-warning {
+            background-color: #ecc200;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div class="root">
         <h1>Yields example</h1>
-        <pre class="language-javascript"><code class="code language-javascript" contenteditable spellcheck="false"></code></pre>
+        <pre
+            class="language-javascript"><code class="code language-javascript" contenteditable spellcheck="false"></code></pre>
+        <div class='description'>
+            <h2>Description of the code above</h2>
+            <p>
+                <ol>
+                    <li>
+                        <pre>
+Function execute - is a main of the our function that we will call with our test examples.
+This function will iterate through all yields and promises.
+While it don't receive done true it will execute iterator next with parameter equal to the received value.
+Each yield will return result to the execute function, check it on done true or false,
+if false then it set its result to the variable in which line it yielded and continue code execution.
+                        </pre>
+                    </li>
+                    <li>
+                        <pre>
+Function getTestJson - simple example with callback function, that will be called after received
+end result and send it as parameter to the callback.
+                        </pre>
+                    </li>
+                    <li>
+                        <pre>
+Function registerUser - is an example with linked api calls and recall self by the new login
+parameter value.
+                        </pre>
+                    </li>
+                </ol>
+            </p>
+            <p class="text-warning">Warning: iterators and yields doesn't support in the IE11 and below, you can use
+                babel-polyfill package with babel to transpile code to the supported version.</p>
+        </div>
     </div>
     <script type="text/javascript" src="../javascripts/prism.js"></script>
     <script type="text/javascript" src="../javascripts/yields.js"></script>

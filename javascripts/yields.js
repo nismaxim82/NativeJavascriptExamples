@@ -14,6 +14,7 @@ function execute(generator, yieldValue, callback) {
     }
 }
 
+// simple fetch function received json result
 function* getTestJson() {
     var url = 'https://nismaxim82.github.io/NativeJavascriptExamples/data/test.json';
     var response = yield fetch(url);
@@ -21,6 +22,8 @@ function* getTestJson() {
     return responseBody;
 };
 
+// function that make fetch call based on result of response before
+// recall by self with changed login property on some other unique value
 function* registerUser({ login, password }) {
     // for our test example it will return all our users, 
     // in the real api it will be server side check user exist in the database or other data source

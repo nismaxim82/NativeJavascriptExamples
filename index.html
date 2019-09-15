@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Native javascript examples</title>
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        (function () {
+            setFavicon();
+        })();
+
+        function setFavicon() {
+            var favIcon = 'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB9UlEQVRYw92XzyuDcRzHn2EkLjOJOeBAGWorEcUyOawcRrlhOfh1kijlpNxcOClW+xdQy00zB5pJRCk5UE6TMqWQ8H7qPT2enmzzfJ9H+dSrbd/n8/0+r32f769Hkr5HOYiADwEkgUfKMoKCbp7iFvRkIxBnxQBo18GmQuIBDGQqEGMlp6QvVtnOOXgHz2AsGwGXToE1tjMIpsALeANzIMdMgWtwBF4Vj2TBTAEtjkULWIBd1bUVoF5FH9uOiRYoAxdgPE1eowiBETAPchVlE6zTDWaZoxUuvQJ+juQtkM8yWeSA60cR2GCOX7RAF5fWHWBTlDczf5K/bcxJso4QgTqQAJccbMpYBo8cdKmwMzfBuroF5H8V5o18ivJScAfWVW34mBtW9ZauR1ACouxaL8uGmduhmI5e5kRZR+ggdIAz5hSCXXAKrLxeAA6Z4zBiFshRDRpAG/OmVdebmCMZJZCKUXADKrNYsIQKWHl6svyVwG9CqEAe57uF32u5J5gm4OZppwaEwBUZMkuglYtQJ3jiVisfPnvNEmihgNwDKzz9htLMCqEC8vV7UAWK+Ui2wR7HhGEC8qDrB4vcbNxc/eQzwBKPW4YLzIATflq5J+xzG/b8m3XAaYCAMxMBUa9mWgTYdtzMl1Mtgj8JiHw91yLCe3zFJz1LIYsyI/dfAAAAAElFTkSuQmCC';
+            var docHead = document.getElementsByTagName('head')[0];
+            var newLink = document.createElement('link');
+            newLink.rel = 'shortcut icon';
+            newLink.href = 'data:image/png;base64,' + favIcon;
+            docHead.appendChild(newLink);
+        }
+    </script>
+</body>
+
+</html>

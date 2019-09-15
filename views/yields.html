@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .root {
+            margin: 0;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root">
+        <h1>Yields example</h1>
+        <pre class="code"></pre>
+    </div>
+    <script type="text/javascript" src="../javascripts/yields.js"></script>
+    <script type="text/javascript">
+        (function () {
+            execute(loadCode());
+        })();
+
+        function* loadCode() {
+            var url = 'https://nismaxim82.github.io/NativeJavascriptExamples/javascripts/yields.js';
+            var response = yield fetch(url);
+            var responseBody = yield response.text();
+            var code = document.querySelector('.code');
+            code.innerHTML = responseBody;
+        }
+    </script>
+</body>
+
+</html>

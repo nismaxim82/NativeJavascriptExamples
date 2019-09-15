@@ -6,14 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Native javascript examples</title>
     <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
+    <style type="text/css">
+        html {
+            height: 100%;
+            display: flex;
+        }
+
+        body {
+            display: flex;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .root {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .menu {
+            width: 160px;
+            background-color: #606060;
+            list-style-type: none;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu li a {
+            color: #f5f5f5;
+        }
+
+        .frame {
+            border: 10px;
+            flex: 1;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="root">
+        <ul class="menu">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#yields">Yields example</a></li>
+        </ul>
+        <iframe class="frame" src="./README.md"></iframe>
+    </div>
 
+    <script type="text/javascript" src="./javascripts/rxjs@6.0.0.js"></script>
     <script type="text/javascript">
+        var fromEvent = rxjs.fromEvent;
+
         (function () {
             setFavicon();
+            setIFrameSource();
+            var hashChanged = fromEvent(window, 'hashchange');
+            hashChanged.subscribe(setIFrameSource);
         })();
+
+        function setIFrameSource() {
+            var url;
+            var hash = window.location.hash;
+            switch (hash) {
+                case '#yields':
+                    url = './views/yields.html';
+                    break;
+                default:
+                    url = './README.md';
+                    break;
+            }
+            var frame = document.querySelector('.frame');
+            frame.src = url;
+        }
 
         function setFavicon() {
             var favIcon = 'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB9UlEQVRYw92XzyuDcRzHn2EkLjOJOeBAGWorEcUyOawcRrlhOfh1kijlpNxcOClW+xdQy00zB5pJRCk5UE6TMqWQ8H7qPT2enmzzfJ9H+dSrbd/n8/0+r32f769Hkr5HOYiADwEkgUfKMoKCbp7iFvRkIxBnxQBo18GmQuIBDGQqEGMlp6QvVtnOOXgHz2AsGwGXToE1tjMIpsALeANzIMdMgWtwBF4Vj2TBTAEtjkULWIBd1bUVoF5FH9uOiRYoAxdgPE1eowiBETAPchVlE6zTDWaZoxUuvQJ+juQtkM8yWeSA60cR2GCOX7RAF5fWHWBTlDczf5K/bcxJso4QgTqQAJccbMpYBo8cdKmwMzfBuroF5H8V5o18ivJScAfWVW34mBtW9ZauR1ACouxaL8uGmduhmI5e5kRZR+ggdIAz5hSCXXAKrLxeAA6Z4zBiFshRDRpAG/OmVdebmCMZJZCKUXADKrNYsIQKWHl6svyVwG9CqEAe57uF32u5J5gm4OZppwaEwBUZMkuglYtQJ3jiVisfPnvNEmihgNwDKzz9htLMCqEC8vV7UAWK+Ui2wR7HhGEC8qDrB4vcbNxc/eQzwBKPW4YLzIATflq5J+xzG/b8m3XAaYCAMxMBUa9mWgTYdtzMl1Mtgj8JiHw91yLCe3zFJz1LIYsyI/dfAAAAAElFTkSuQmCC';

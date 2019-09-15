@@ -1,6 +1,5 @@
-// вспомогательная функция-чернорабочий
-// для выполнения промисов из generator
-function* execute(generator, yieldValue, callback) {
+// function that will iterate through all yields and promises
+function execute(generator, yieldValue, callback) {
     var next = generator.next(yieldValue);
     if (!next.done) {
         next.value.then(
@@ -8,7 +7,7 @@ function* execute(generator, yieldValue, callback) {
             function (err) { generator.throw(err); }
         );
     } else {
-        // обработаем результат return из генератора
+        // if callback specified then process the return result to the callback
         if (callback) {
             callback(next.value);
         }
@@ -16,13 +15,13 @@ function* execute(generator, yieldValue, callback) {
 }
 
 function* getTestJson() {
-    var url = 'https://nismaxim82.github.io/NativeJavascriptExamples/test.json';
-    const response = yield fetch(url);
-    const responseBody = yield response.json();
+    var url = 'https://nismaxim82.github.io/NativeJavascriptExamples/data/test.json';
+    var response = yield fetch(url);
+    var responseBody = yield response.json();
     return responseBody;
 };
 
-execute(getTestJson(), null, (data) => {
+execute(getTestJson(), null, function(data) {
     console.log(data);
 });
 console.log('Asynchronious console log before received request result');

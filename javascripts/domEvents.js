@@ -1,8 +1,3 @@
-const selector = '*';
-const event = 'click';
-
-console.log(window.location);
-
 const getEventsBySelector = (selector = '*', event = 'click') => {
     Array.from(document.querySelectorAll(selector))
         .reduce((pre, dom) => {
@@ -12,11 +7,15 @@ const getEventsBySelector = (selector = '*', event = 'click') => {
         }, 0);
 }
 
-console.warn('Execute code below in the google dev tools to receive listed events count for your selector');
-let funcText = getEventsBySelector.toString();
-const excludeText = 'function getEventsBySelector(selector = \'*\', event = \'click\') {';
-funcText = funcText.substring(funcText.indexOf(excludeText) + excludeText.length);
-funcText = funcText.replace('selector', `'${selector}'`);
-funcText = funcText.replace('event', `'${event}'`);
-funcText = funcText.substring(0, funcText.length - 1);
-console.log(funcText);
+const getEventsCalculationsFuncAsText = (selector = '*', event = 'click') => {
+    console.warn('Execute code below in the google dev tools to receive listed events count for your selector');
+    let funcText = getEventsBySelector.toString();
+    const excludeText = ' => {';
+    funcText = funcText.substring(funcText.indexOf(excludeText) + excludeText.length);
+    funcText = funcText.replace('selector', `'${selector}'`);
+    funcText = funcText.replace('event', `'${event}'`);
+    funcText = funcText.substring(0, funcText.length - 1);
+    console.log(funcText);
+}
+
+getEventsCalculationsFuncAsText();

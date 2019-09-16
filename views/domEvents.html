@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/prism.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body>
+    <div class="root">
+        <h1>Dom elements events calculations example</h1>
+        <pre class="language-javascript">
+            <code class="code language-javascript" contenteditable spellcheck="false"></code>
+        </pre>
+        <div class='description'>
+            <h2>Description of the code above</h2>
+            <p>
+                <ol>
+                    <li>desc 1</li>
+                    <li>desc 2</li>
+                </ol>
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript" src="../javascripts/prism.js"></script>
+    <script type="text/javascript" src="../javascripts/domEvents.js"></script>
+    <script type="text/javascript">
+        (function () {
+            execute(loadCode());
+        })();
+
+        function* loadCode() {
+            var selector = encodeURIComponent('.root');
+            var event = encodeURIComponent('click');
+            var url = `https://nismaxim82.github.io/NativeJavascriptExamples/javascripts/domEvents.js?selector=${selector}&event=${event}`;
+            var response = yield fetch(url);
+            var responseBody = yield response.text();
+            var code = document.querySelector('.code');
+            code.innerHTML = Prism.highlight(responseBody, Prism.languages.javascript, 'javascript');
+        }
+    </script>
+</body>
+
+</html>
